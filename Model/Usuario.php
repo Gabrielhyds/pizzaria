@@ -101,7 +101,7 @@ class Usuario extends Banco{
 
                 $stmt = $conn->prepare($query);
 
-                if ($stmt->execute(array(":nome" => $this->nome,":permissao" => $this->permissao,":senha" => $this->senha,":genero" => $this->genero,":cpf" => $this->cpf,":salario" => $this->salario))) {
+                if ($stmt->execute(array(":nome" => $this->nome, ":permissao" => $this->permissao, ":senha" => $this->senha, ":genero" => $this->genero, ":cpf" => $this->cpf, ":salario" => $this->salario))) {
                     $result = $stmt->rowCount();
                 }
             }  

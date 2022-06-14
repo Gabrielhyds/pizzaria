@@ -25,64 +25,95 @@ ob_start();
 </head>
 
 <body>
-<br><br><br><br><br><br>
-<div class="limiter">
-		<div class="container-login100">
-			<div class="wrap-login100">
-				<div class="login100-pic js-tilt" data-tilt>
-					<img src="view/images/img-01.png" alt="IMG">
-				</div>
-				<form class="login100-form validate-form" action="" method="POST" name="cadUsuario" id="cadUsuario">
-					<span class="login100-form-title">
-						Faça seu Cadastro
-					</span>
+<br><br><br><br>
 
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input100" type="text" name="usuario" placeholder="Login" value="<?php echo isset($usuario)?$usuario->getLogin():'' ?>">
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-user" aria-hidden="true"></i>
-						</span>
-					</div>
+<div class="main-content"  style="margin-left:80px;margin-right:20px; overflow-x:hidden">
+                <section class="section">
+                    <h1 class="section-header">
+						<h2>Cadastrar Usuário</h2><hr style="margin-right:1240px">
+                    </h1>
+                    <form method="POST" action="" enctype="multipart/form-data">
+                        <div>
+                        </div><br>
+                        <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="inputEmail4" style="color:black;">Nome completo</label>
+                            <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome Completo" required value="<?php echo isset($usuario)?$usuario->getNome():'' ?>">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputPassword4" style="color:black;">Usuário</label>
+                            <input type="text" class="form-control" name="usuario" id="usuario" placeholder="Usuário" required value="<?php echo isset($usuario)?$usuario->getUsuario():'' ?>">
+                        </div>
+                        <div class="form-group col-md-4">
+                        <label for="inputAddress" style="color:black;">CPF</label>
+                        <input type="number" class="form-control" name="cpf" id="cpf" placeholder="XXX.XXX.XXX-XX" required value="<?php echo isset($usuario)?$usuario->getCpf():'' ?>">
+                        </div>
+                        </div>
+                        <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress2" style="color:black;">Senha</label>
+                            <input type="password" class="form-control" name="senha" id="senha" placeholder="Senha" required value="<?php echo isset($usuario)?$usuario->getSenha():'' ?>" >
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress2" style="color:black;">Confirma Senha</label>
+                            <input type="password" class="form-control" name="Confirmasenha" id="Confirmasenha" placeholder="Confirme a senha" required>
+						</div>
+						<div class="form-group col-md-4">
+							<label for="genero" style="color:black;">Genêro</label>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="genero" id="genero" required value="Feminino" value="<?php echo isset($usuario)?$usuario->getGenero():'' ?>">
+								<label class="form-check-label" for="Feminino" style="color:black">
+								Feminino
+								</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="genero" id="genero" required value="Masculino"  value="<?php echo isset($usuario)?$usuario->getGenero():'' ?>">
+								<label class="form-check-label" for="Masculino" style="color:black">
+								Masculino
+								</label>
+							</div>
+                        </div>
+                        
+                        </div>
 
-					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" name="senha" placeholder="senha" value="<?php echo isset($usuario)?$usuario->getSenha():'' ?>">
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-lock" aria-hidden="true"></i>
-						</span>
-					</div>
+                      
 
-                    <div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" name="senha2" placeholder="Confirme a senha">
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-lock" aria-hidden="true"></i>
-						</span>
-					</div>
-					
-                    <div class="wrap-input100 validate-input" data-validate = "Password is required">
-                        <select name="permissao" id="permissao" class="input100" style="border:none">
-                            <option value="0" disabled selected style="color:black">Selecione</option>
-							<option value="A"<?php echo isset($usuario) && $usuario->getPermissao()=='A'?'selected':''?>>Administrador</option>
-            				<option value="C"<?php echo isset($usuario) && $usuario->getPermissao()=='C'?'selected':''?>>Comum</option>                       
-						</select>
-                        <span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-id-badge" aria-hidden="true"></i>
-						</span>
-					</div>
+                        <fieldset>
+                            <div class="row">
+                            <div class="form-group col-md-5">
+                            <h2>Dados da Empresa</h2><hr>
+                            </div>
+                            </div>
+                            <div class="row">
+                            <div class="col mb-6">
+                                <label for="permissao" class="form-label" >Permissão</label>
+								<select name="permissao" id="permissao" class="form-control">
+                            		<option value="0" disabled selected style="color:black">Selecione</option>
+									<option value="1"<?php echo isset($usuario) && $usuario->getPermissao()=='A'?'selected':''?>>Administrador</option>
+            						<option value="2"<?php echo isset($usuario) && $usuario->getPermissao()=='C'?'selected':''?>>Comum</option>                       
+								</select>
+                                </select>
+                            </div>
+                            <div class="col mb-6">
+                                <label for="salario" class="form-label">salario</label>
+                                <input type="number" class="form-control" name="salario" id="salario" min="1" required value="<?php echo isset($usuario)?$usuario->getSalario():'' ?>">
+                            </div>
+                            </div>
+                            <div ><br>
+                            <button type="submit" class="btn btn-success" name="btnSalvar">CADASTRAR</button>
+                            <button type="reset" class="btn btn-danger"  name="btnEditar">LIMPAR</button>
+                            </div>
 
-                    <div class="wrap-input100">
-						<input class="input100" type="hidden" name="idUsuario" id='idUsuario' value="<?php echo isset($usuario)?$usuario->getId():''; ?>">
-					</div>
+							<div class="wrap-input100">
+								<input class="input100" type="hidden" name="idUsuario" id='idUsuario' value="<?php echo isset($usuario)?$usuario->getId():''; ?>">
+							</div>
+                        </fieldset>
+                        </form>
 
-					<div class="container-login100-form-btn">
-						<button class="login100-form-btn" name="btnSalvar" id="btnSalvar">
-							Cadastrar
-						</button><br><br><br>
-					</div>
-					<?php
+                </section>
+            </div>
+
+	<?php
         //Verifica se o botão submit foi acionado 
         if(isset($_POST['btnSalvar'])){
 				call_user_func(array('UsuarioController','salvar'));

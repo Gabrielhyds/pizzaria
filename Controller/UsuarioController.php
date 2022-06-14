@@ -9,7 +9,11 @@ class UsuarioController{
 
         $usuario->setId($_POST["idUsuario"]);
         $usuario->setUsuario($_POST["usuario"]);
+        $usuario->setNome($_POST["nome"]);
+        $usuario->setCpf($_POST["cpf"]);
+        $usuario->setGenero($_POST["genero"]);
         $usuario->setSenha($_POST["senha"]);
+        $usuario->setSalario($_POST["salario"]);
         $usuario->setPermissao($_POST["permissao"]);
 
         $usuario->save();
