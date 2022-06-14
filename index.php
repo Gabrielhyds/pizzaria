@@ -20,25 +20,25 @@
     
     <?php
         if(isset($_SESSION['logado']) && $_SESSION['logado'] == true){
-            require_once 'view/menu.php';
-        if(isset($_GET["action"]) && isset($_GET["page"]) && $_GET["page"] == "usuario"){
+            require_once 'view/templates/menu.php';
+        if(isset($_GET["action"]) && isset($_GET["page"]) == "usuario"){
             if($_GET["action"] == "editar"){
                 $usuario = call_user_func(array("UsuarioController","editar"), $_GET["id"]);
-                require_once 'view/cadUsuario.php';
+                require_once 'view/templates/cadUsuario.php';
             }
             if($_GET["action"] == "listar"){
-                require_once 'view/listUsuario.php';
+                require_once 'view/templates/listUsuario.php';
             }
             if($_GET["action"] == "excluir"){
                 $usuario = call_user_func(array("UsuarioController","excluir"), $_GET["id"]);
-                require_once 'view/listUsuario.php';
+                require_once 'view/templates/listUsuario.php';
             }
         }else{
-            require_once 'view/CadUsuario.php';
+            require_once 'view/templates/CadUsuario.php';
         }
       }else{
         if(isset($_GET['logar'])){
-          require_once 'view/login.php';
+          require_once 'View/templates/login.php';
         }else{
           require_once 'principal.php';
         }
@@ -74,34 +74,6 @@
       }
     }
     */
-    ?>
-
-
-    <?php
-        if(isset($_SESSION['logado']) && $_SESSION['logado'] == true){
-            require_once 'view/menu.php';
-        if(isset($_GET["action"]) && isset($_GET["page"]) && $_GET["page"] == "imovel"){
-            if($_GET["action"] == "editar"){
-                $imovel = call_user_func(array("ImovelController","editar"), $_GET["id"]);
-                require_once 'view/cadImovel.php';
-            }
-            if($_GET["action"] == "listar"){
-                require_once 'view/listImovel.php';
-            }
-            if($_GET["action"] == "excluir"){
-                $imovel = call_user_func(array("ImovelController","excluir"), $_GET["id"]);
-                require_once 'view/listImovel.php';
-            }
-        }else{
-            require_once 'view/CadImovel.php';
-        }
-      }else{
-        if(isset($_GET['logar'])){
-          require_once 'view/login.php';
-        }else{
-          require_once 'principal.php';
-        }
-      }
     ?>
 </body>
 </html>

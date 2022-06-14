@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -5,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Freelancer - Start Bootstrap Theme</title>
+        <title>Painel de Controle Admin</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="view/assetsPrincipal/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
@@ -20,9 +21,9 @@
     </head>
     <body id="page-top">
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top dp-menu" id="mainNav">
+        <nav class="navbar navbar-expand-lg bg-primary text-uppercase fixed-top dp-menu"  id="mainNav" >
             <div class="container">
-                <a class="navbar-brand" href="#page-top">Grant Food</a>
+                <a class="navbar-brand" href="index.php" style="color:black">Grant-Food</a>
                 <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -30,24 +31,31 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
                     <div class="dropdown" style="margin-top:10px">
-                        <button class="btn btn-secondary dropdown-toggle nav-item mx-0 mx-lg-1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button class="btn btn-primary dropdown-toggle nav-item mx-0 mx-lg-1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Cadastrar
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">usuário</a>
-                            <a class="dropdown-item" href="#">Produto</a>
+                            <a class="dropdown-item" href="index.php">usuário</a>
+                            <a class="dropdown-item" href="index.php">Produto</a>
                         </div>
                         </div>
                         <div class="dropdown" style="margin-top:10px">
-                        <button class="btn btn-secondary dropdown-toggle nav-item mx-0 mx-lg-1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Listar
-                        </button>
-                        <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">usuário</a>
-                            <a class="dropdown-item" href="#">Produto</a>
+                            <button class="btn btn-primary dropdown-toggle nav-item mx-0 mx-lg-1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Listar
+                            </button>
+                            <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="index.php?action=listar&page=usuario">usuário</a>
+                                <a class="dropdown-item" href="">Produto</a>
+                            </div>
                         </div>
+                        <div class="dropdown" style="margin-top:10px">
+                            <button class="btn btn-primary dropdown-toggle nav-item mx-0 mx-lg-1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                olá <?php echo $_SESSION['login'];?>
+                            </button>
+                            <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
+                                <a class="nav-link py-3 px-0 px-lg-3 rounded" style="color:black;" href="./Sair.php">Sair</a>
+                            </div>
                         </div>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="../../Sair.php">Sair</a></li>
                     </ul>
                 </div>
             </div>

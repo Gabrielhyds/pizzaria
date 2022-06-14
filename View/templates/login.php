@@ -1,6 +1,5 @@
 <?php
 ob_start();
-//include "../../Controller/UsuarioController.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,12 +8,12 @@ ob_start();
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport">
   <title>Entrar</title>
 
-  <link rel="stylesheet" href="../assets/modules/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../assets/modules/ionicons/css/ionicons.min.css">
-  <link rel="stylesheet" href="../assets/modules/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css">
+  <link rel="stylesheet" href="view/templates/assets/modules/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="view/templates/assets/modules/ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="view/templates/assets/modules/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css">
 
-  <link rel="stylesheet" href="../assets/css/demo.css">
-  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="view/templates/assets/css/demo.css">
+  <link rel="stylesheet" href="view/templates/assets/css/style.css">
 </head>
 
 <body>
@@ -71,8 +70,8 @@ ob_start();
                         //Verifica se o botão submit foi acionado 
                         if(isset($_POST['btnLogar'])){
                                 $_SESSION['logado'] = call_user_func(array('UsuarioController','logar'));
-                                $_SESSION['login'] = $_POST['login'];
-                                header('Location:../../index.php');
+                                $_SESSION['login'] = $_POST['usuario'];
+                                header('Location:./index.php');
                                 ob_end_flush();
                         }
                     ?>
@@ -90,17 +89,17 @@ ob_start();
     </section>
   </div>
 
-  <script src="../assets/modules/jquery.min.js"></script>
-  <script src="../assets/modules/popper.js"></script>
-  <script src="../assets/modules/tooltip.js"></script>
-  <script src="../assets/modules/bootstrap/js/bootstrap.min.js"></script>
-  <script src="../assets/modules/nicescroll/jquery.nicescroll.min.js"></script>
-  <script src="../assets/modules/moment.min.js"></script>
-  <script src="../assets/modules/scroll-up-bar/dist/scroll-up-bar.min.js"></script>
-  <script src="../assets/js/sa-functions.js"></script>
+  <script src="view/templates/assets/modules/jquery.min.js"></script>
+  <script src="view/templates/assets/modules/popper.js"></script>
+  <script src="view/templates/assets/modules/tooltip.js"></script>
+  <script src="view/templates/assets/modules/bootstrap/js/bootstrap.min.js"></script>
+  <script src="view/templates/assets/modules/nicescroll/jquery.nicescroll.min.js"></script>
+  <script src="view/templates/assets/modules/moment.min.js"></script>
+  <script src="view/templates/assets/modules/scroll-up-bar/dist/scroll-up-bar.min.js"></script>
+  <script src="view/templates/assets/js/sa-functions.js"></script>
   
-  <script src="../assets/js/scripts.js"></script>
-  <script src="../assets/js/custom.js"></script>
-  <script src="../assets/js/demo.js"></script>
+  <script src="view/templates/assets/js/scripts.js"></script>
+  <script src="view/templates/assets/js/custom.js"></script>
+  <script src="view/templates/assets/js/demo.js"></script>
 </body>
 </html>

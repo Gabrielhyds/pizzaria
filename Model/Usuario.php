@@ -6,9 +6,13 @@ require_once 'Conexao.php';
 class Usuario extends Banco{
 
     private $id;
-    private $usuario;
-    private $senha;
+    private $nome;
     private $permissao;
+    private $senha;
+    private $usuario;
+    private $genero;
+    private $cpf;
+    private $salario;
 
     public function getId(){
         return $this->id;
@@ -18,12 +22,20 @@ class Usuario extends Banco{
         $this->id = $id;
     }
 
-    public function getUsuario(){
-        return $this->usuario;
+    public function getNome(){
+        return $this->nome;
     }
 
-    public function setUsuario($usuario){
-        $this->usuario = $usuario;
+    public function setNome($nome){
+        $this->nome = $nome;
+    }
+
+    public function getPermissao(){
+        return $this->permissao;
+    }
+
+    public function setPermissao($permissao){
+        $this->permissao = $permissao;
     }
 
     public function getSenha(){
@@ -34,12 +46,37 @@ class Usuario extends Banco{
         $this->senha = $senha;
     }
 
-    public function getPermissao(){
-        return $this->permissao;
+    
+    public function getUsuario(){
+        return $this->usuario;
     }
 
-    public function setPermissao($permissao){
-        $this->permissao = $permissao;
+    public function setUsuario($usuario){
+        $this->usuario = $usuario;
+    }
+
+    public function getGenero(){
+        return $this->genero;
+    }
+
+    public function setGenero($genero){
+        $this->genero = $genero;
+    }
+
+    public function getCpf(){
+        return $this->cpf;
+    }
+
+    public function setCpf($cpf){
+        $this->cpf = $cpf;
+    }
+
+    public function getSalario(){
+        return $this->salario;
+    }
+
+    public function setSalario($salario){
+        $this->salario = $salario;
     }
 
     public function save(){
@@ -51,20 +88,20 @@ class Usuario extends Banco{
         if($conn = $conexao->getConection()){
             if($this->id > 0){
 
-                $query = "UPDATE usuario SET login = :login, senha = :senha, permissao = :permissao WHERE id = :id";
+                $query = "UPDATE usuario SET nome = :nome, permissao = :permissao, senha = :senha,  genero = :genero , cpf = :cpf ,  salario = :salario  WHERE idUsuario = :idUsuario";
 
                 $stmt = $conn->prepare($query);
 
-                if ($stmt->execute(array(":login" => $this->login, ":senha" => $this->senha, ":permissao" => $this->permissao, ":id"=> $this->id))) {
+                if ($stmt->execute(array(":nome" => $this->nome,":permissao" => $this->permissao,":senha" => $this->senha,":genero" => $this->genero,":cpf" => $this->cpf,":salario" => $this->salario, ":idUsuario"=> $this->id))) {
                     $result = $stmt->rowCount();
                 }
             }else{
 
-                $query = "insert into usuario (id, login, senha, permissao) values (null,:login,:senha,:permissao)";
+                $query = "insert into usuario (idUsuario, nome, permissao , senha genero, cpf, salario) values (null,:nome,:permissao,:senha,:genero,:cpf,:salario)";
 
                 $stmt = $conn->prepare($query);
 
-                if ($stmt->execute(array(":login" => $this->login, ":senha" => $this->senha, ":permissao" => $this->permissao))) {
+                if ($stmt->execute(array(":nome" => $this->nome,":permissao" => $this->permissao,":senha" => $this->senha,":genero" => $this->genero,":cpf" => $this->cpf,":salario" => $this->salario))) {
                     $result = $stmt->rowCount();
                 }
             }  
@@ -80,11 +117,11 @@ class Usuario extends Banco{
 
         $conn = $conexao->getConection();
 
-        $query = "DELETE FROM usuario where id = :id";
+        $query = "DELETE FROM usuario where idUsuario = :idUsuario";
 
         $stmt = $conn->prepare($query);
 
-        if ($stmt->execute(array(":id"=> $id))) {
+        if ($stmt->execute(array(":idUsuario"=> $id))) {
             $result = true;
         }
         return $result;
@@ -96,11 +133,11 @@ class Usuario extends Banco{
 
         $conn = $conexao->getConection();
 
-        $query = "SELECT * FROM usuario where id = :id";
+        $query = "SELECT * FROM usuario where idUsuario = :idUsuario";
 
         $stmt = $conn->prepare($query);
 
-        if ($stmt->execute(array(":id"=> $id))) {
+        if ($stmt->execute(array(":idUsuario"=> $id))) {
 
             if ($stmt->rowCount() > 0) {
 
@@ -141,9 +178,9 @@ class Usuario extends Banco{
     public function logar(){
         $conexao = new Conexao();
         $conn = $conexao->getConection();
-        $query = "SELECT * FROM usuario WHERE login = :login and senha = :senha";
+        $query = "SELECT * FROM usuario WHERE usuario = :usuario and senha = :senha";
         $stmt = $conn->prepare($query);
-        if($stmt->execute(array(':login'=>$this->login,':senha'=>$this->senha))){
+        if($stmt->execute(array(':usuario'=>$this->usuario,':senha'=>$this->senha))){
             if($stmt->rowCount() > 0){
                 $result = true;
             }else{

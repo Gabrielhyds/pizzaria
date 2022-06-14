@@ -7,9 +7,9 @@ class UsuarioController{
 
         $usuario = new Usuario;
 
-        $usuario->setId($_POST["id"]);
-        $usuario->setUsuario($_POST["login"]);
-        $usuario->setSenha($_POST["senha1"]);
+        $usuario->setId($_POST["idUsuario"]);
+        $usuario->setUsuario($_POST["usuario"]);
+        $usuario->setSenha($_POST["senha"]);
         $usuario->setPermissao($_POST["permissao"]);
 
         $usuario->save();
@@ -45,7 +45,7 @@ class UsuarioController{
 
     public static function logar(){
         $usuario = new Usuario();
-        $usuario->setUsuario($_POST['login']);
+        $usuario->setUsuario($_POST['usuario']);
         $usuario->setSenha($_POST['senha']);
 
         return $usuario->logar();
