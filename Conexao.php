@@ -3,7 +3,7 @@ class Conexao{
 
     private $servername = "localhost";
     private $username = "root";
-    private $password = "HORTETEC_115";
+    private $password = "";
     private $database = "BDpizzaria";
     private $conection;
 
