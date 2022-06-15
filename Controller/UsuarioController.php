@@ -7,7 +7,7 @@ class UsuarioController{
 
         $usuario = new Usuario;
 
-        $usuario->setId($_POST["idUsuario"]);
+        $usuario->setId($_POST["id"]);
         $usuario->setUsuario($_POST["usuario"]);
         $usuario->setNome($_POST["nome"]);
         $usuario->setCpf($_POST["cpf"]);

@@ -88,20 +88,20 @@ class Usuario extends Banco{
         if($conn = $conexao->getConection()){
             if($this->id > 0){
 
-                $query = "UPDATE usuario SET nome = :nome, permissao = :permissao, senha = :senha,  genero = :genero , cpf = :cpf ,  salario = :salario  WHERE idUsuario = :idUsuario";
+                $query = "UPDATE usuario SET nome = :nome, permissao = :permissao, usuario = :usuario,  senha = :senha,  genero = :genero , cpf = :cpf ,  salario = :salario  WHERE id = :id";
 
                 $stmt = $conn->prepare($query);
 
-                if ($stmt->execute(array(":nome" => $this->nome,":permissao" => $this->permissao,":senha" => $this->senha,":genero" => $this->genero,":cpf" => $this->cpf,":salario" => $this->salario, ":idUsuario"=> $this->id))) {
+                if ($stmt->execute(array(":nome" => $this->nome,":permissao" => $this->permissao,  ":usuario" => $this->usuario, ":senha" => $this->senha,":genero" => $this->genero,":cpf" => $this->cpf,":salario" => $this->salario, ":id"=> $this->id))) {
                     $result = $stmt->rowCount();
                 }
             }else{
 
-                $query = "insert into usuario (idUsuario, nome, permissao , senha genero, cpf, salario) values (null,:nome,:permissao,:senha,:genero,:cpf,:salario)";
+                $query = "insert into usuario (id, nome, permissao ,usuario, senha,  genero, cpf, salario) values (null,:nome,:permissao,:usuario,:senha,:genero,:cpf,:salario)";
 
                 $stmt = $conn->prepare($query);
 
-                if ($stmt->execute(array(":nome" => $this->nome, ":permissao" => $this->permissao, ":senha" => $this->senha, ":genero" => $this->genero, ":cpf" => $this->cpf, ":salario" => $this->salario))) {
+                if ($stmt->execute(array(":nome" => $this->nome, ":permissao" => $this->permissao, ":usuario" => $this->usuario, ":senha" => $this->senha, ":genero" => $this->genero, ":cpf" => $this->cpf, ":salario" => $this->salario))) {
                     $result = $stmt->rowCount();
                 }
             }  
@@ -117,11 +117,11 @@ class Usuario extends Banco{
 
         $conn = $conexao->getConection();
 
-        $query = "DELETE FROM usuario where idUsuario = :idUsuario";
+        $query = "DELETE FROM usuario where id = :id";
 
         $stmt = $conn->prepare($query);
 
-        if ($stmt->execute(array(":idUsuario"=> $id))) {
+        if ($stmt->execute(array(":id"=> $id))) {
             $result = true;
         }
         return $result;
@@ -133,11 +133,11 @@ class Usuario extends Banco{
 
         $conn = $conexao->getConection();
 
-        $query = "SELECT * FROM usuario where idUsuario = :idUsuario";
+        $query = "SELECT * FROM usuario where id = :id";
 
         $stmt = $conn->prepare($query);
 
-        if ($stmt->execute(array(":idUsuario"=> $id))) {
+        if ($stmt->execute(array(":id"=> $id))) {
 
             if ($stmt->rowCount() > 0) {
 

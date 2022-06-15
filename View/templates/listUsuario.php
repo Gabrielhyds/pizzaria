@@ -37,7 +37,7 @@ ob_start();
                         foreach($usuarios as $usuario){
                             ?>
                             <tr>
-                            <th scope="row"><?php echo $usuario->getUsuario(); ?></th>
+                            <th scope="row"><?php echo $usuario->getNome(); ?></th>
                             <?php
                                 switch($usuario->getPermissao()){
                                     case 1:
@@ -50,7 +50,7 @@ ob_start();
                                 ?>
                             <td><?php echo $permissao;?></td>
                             <td>
-                                <a href="index.php?action=editar&id=<?php var_dump($usuario->getId()); ?>" style="text-decoration:none;color:blue;">Editar</a>
+                                <a href="index.php?action=editar&id=<?php echo $usuario->getId(); ?>" style="text-decoration:none;color:blue;">Editar</a>
                                 <a href="index.php?action=excluir&id=<?php echo $usuario->getId();?>" style="text-decoration:none;color:red;">Excluir</a>
                                 </td>
                             </tr>

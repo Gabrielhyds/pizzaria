@@ -1,13 +1,8 @@
+
 <?php
-//session_start();
+
 ob_start();
-    if(!isset($_SESSION['logado']))
-    {
-      //se não houver sessão ele redireciona para tela de login
-      header("Location: ../../index.php");
-      ob_end_flush();
-      exit;
-  }
+require_once './controller/UsuarioController.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,13 +56,13 @@ ob_start();
 						<div class="form-group col-md-4">
 							<label for="genero" style="color:black;">Genêro</label>
 							<div class="form-check">
-								<input class="form-check-input" type="radio" name="genero" id="genero" required value="Feminino" value="<?php echo isset($usuario)?$usuario->getGenero():'' ?>">
+								<input class="form-check-input" type="radio" name="genero" id="genero" required value="Feminino" >
 								<label class="form-check-label" for="Feminino" style="color:black">
 								Feminino
 								</label>
 							</div>
 							<div class="form-check">
-								<input class="form-check-input" type="radio" name="genero" id="genero" required value="Masculino"  value="<?php echo isset($usuario)?$usuario->getGenero():'' ?>">
+								<input class="form-check-input" type="radio" name="genero" id="genero" required value="Masculino" >
 								<label class="form-check-label" for="Masculino" style="color:black">
 								Masculino
 								</label>
@@ -96,16 +91,16 @@ ob_start();
                             </div>
                             <div class="col mb-6">
                                 <label for="salario" class="form-label">salario</label>
-                                <input type="number" class="form-control" name="salario" id="salario" min="1" required value="<?php echo isset($usuario)?$usuario->getSalario():'' ?>">
+                                <input type="number" class="form-control" placeholder="Qual salario?" name="salario" id="salario" min="1" required value="<?php echo isset($usuario)?$usuario->getSalario():'' ?>">
                             </div>
                             </div>
                             <div ><br>
                             <button type="submit" class="btn btn-success" name="btnSalvar">CADASTRAR</button>
-                            <button type="reset" class="btn btn-danger"  name="btnEditar">LIMPAR</button>
+                            <button type="reset" class="btn btn-danger">LIMPAR</button>
                             </div>
 
 							<div class="wrap-input100">
-								<input class="input100" type="hidden" name="idUsuario" id='idUsuario' value="<?php echo isset($usuario)?$usuario->getId():''; ?>">
+								<input class="input100" type="hidden" name="id" id='id' value="<?php echo isset($usuario)?$usuario->getId():''; ?>">
 							</div>
                         </fieldset>
                         </form>

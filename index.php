@@ -21,7 +21,7 @@
     <?php
         if(isset($_SESSION['logado']) && $_SESSION['logado'] == true){
             require_once 'view/templates/menu.php';
-        if(isset($_GET["action"]) && isset($_GET["page"]) == "usuario"){
+        if(isset($_GET["action"])){
             if($_GET["action"] == "editar"){
                 $usuario = call_user_func(array("UsuarioController","editar"), $_GET["id"]);
                 require_once 'view/templates/cadUsuario.php';
