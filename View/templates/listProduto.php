@@ -16,42 +16,34 @@ ob_start();
 	<meta charset="UTF-8">
 </head>
 <body style="background-color:aliceblue">
-	<h1 style="margin-top:60px;margin-left:25px">Usuários Cadastrado no sistema</h1>
+	<h1 style="margin-top:60px;margin-left:25px">Produtos Cadastrado no sistema</h1>
     <div style="padding:30px">
     <table class="table alert alert-primary">
         <thead>
             <tr>
             <th scope="col" style="color:black">Nome</th>
-            <th scope="col" style="color:black">Permissão</th>
+            <th scope="col" style="color:black">Descricao</th>
+            <th scope="col" style="color:black">Imagem</th>
+            <th scope="col" style="color:black">Preço</th>
             <th scope="col" style="color:black">Ações</th>
             </tr>
         </thead>
             <tbody style="padding:30px;">
                 <?php
                     //importa o usuárioController.php
-                    require_once 'Controller/UsuarioController.php';
+                    require_once 'Controller/ProdutoController.php';
                     //chama uma função PHP que permite informar a classe e o método que será acionado
-                    $usuarios = call_user_func(array('UsuarioController','listar'));
+                    $usuarios = call_user_func(array('ProdutoController','listar'));
                     //verifica se houve algum retorno
-                    if(isset($usuarios) && !empty($usuarios)){
-                        foreach($usuarios as $usuario){
+                    if(isset($produtos) && !empty($produtos)){
+                        foreach($produtos as $produtos){
                             ?>
                             <tr>
-                            <th scope="row"><?php echo $usuario->getNome(); ?></th>
-                            <?php
-                                switch($usuario->getPermissao()){
-                                    case 1:
-                                        $permissao = "Administrador";
-                                        break;
-                                    case 2:
-                                        $permissao = "Comum";
-                                        break;
-                                }
-                                ?>
-                            <td><?php echo $permissao;?></td>
+                            <th scope="row"><?php echo $produto->getNome(); ?></th>
+                            <td><?php echo $descricao?></td>
                             <td>
-                                <a href="index.php?action=editar&id=<?php echo $usuario->getId(); ?>&page=usuario" style="text-decoration:none;color:blue;">Editar</a>
-                                <a href="index.php?action=excluir&id=<?php echo $usuario->getId();?>&page=usuario" style="text-decoration:none;color:red;">Excluir</a>
+                                <a href="index.php?action=editar&id=<?php echo $produto->getId(); ?>&page=produto" style="text-decoration:none;color:blue;">Editar</a>
+                                <a href="index.php?action=excluir&id=<?php echo $produto->getId();?>&page=produto" style="text-decoration:none;color:red;">Excluir</a>
                                 </td>
                             </tr>
                             <?php

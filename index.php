@@ -1,6 +1,7 @@
 <?php
     session_start();
     require_once 'Controller/UsuarioController.php';
+    require_once 'Controller/ProdutoController.php';
 
 ?>
 <!doctype html>
@@ -21,59 +22,59 @@
     <?php
         if(isset($_SESSION['logado']) && $_SESSION['logado'] == true){
             require_once 'view/templates/menu.php';
-        if(isset($_GET["action"])){
-            if($_GET["action"] == "editar"){
+            if(isset($_GET["action"]) && (isset($_GET["page"])) && $_GET["page"] == "usuario"){
+              if($_GET["action"] == "editar"){
                 $usuario = call_user_func(array("UsuarioController","editar"), $_GET["id"]);
                 require_once 'view/templates/cadUsuario.php';
-            }
-            if($_GET["action"] == "listar"){
+              }
+              if($_GET["action"] == "listar"){
                 require_once 'view/templates/listUsuario.php';
-            }
-            if($_GET["action"] == "excluir"){
+              }
+              if($_GET["action"] == "excluir"){
+    
                 $usuario = call_user_func(array("UsuarioController","excluir"), $_GET["id"]);
                 require_once 'view/templates/listUsuario.php';
+              }
+            }elseif((isset($_GET["page"])) && $_GET["page"] == "usuario"){
+              require_once 'view/templates/cadUsuario.php';
             }
         }else{
-            require_once 'view/templates/CadUsuario.php';
-        }
-      }else{
-        if(isset($_GET['logar'])){
-          require_once 'View/templates/login.php';
-        }else{
-          require_once 'principal.php';
-        }
-    }
-
-/*
-    if(isset($_SESSION['logado']) && $_SESSION['logado'] == true){
-        require_once 'view/menu.php';
-    if(isset($_GET["action"]) && isset($_GET["page"]) && $_GET["page"] == "usuario"){
-        if(isset($_GET['action'])){
-            if($_GET['action'] == 'editar'){
-                //chama uma função PHP que permite informar a classe e o método que será acionado 
-                $usuario = call_user_func(array('UsuarioController','editar'), $_GET['id']);
-                require_once 'view/cadUsuario.php';
+            if(isset($_GET['logar'])){
+                require_once 'view/templates/login.php';
+            }else{
+                require_once 'principal.php';
             }
-            if($_GET['action'] == 'listar'){
-                require_once 'view/listUsuario.php';
-            }
-            if($_GET['action'] == 'excluir'){
-                //chama uma função PHP que permite informar a classe e o método que será acionado 
-                $usuario = call_user_func(array('UsuarioController','excluir'),$_GET['id']);
-                require_once 'view/listUsuario.php';
-            }
-        }else{
-          require_once 'view/CadUsuario.php';
         }
-    }
-    }else{
-      if(isset($_GET['logar'])){
-        require_once 'view/login.php';
-      }else{
-        require_once 'principal.php';
-      }
-    }
-    */
     ?>
+
+<?php
+        if(isset($_SESSION['logado']) && $_SESSION['logado'] == true){
+            require_once 'view/templates/menu.php';
+            if(isset($_GET["action"]) && (isset($_GET["page"])) && $_GET["page"] == "produto"){
+              if($_GET["action"] == "editar"){
+                $produto = call_user_func(array("ProdutoController","editar"), $_GET["id"]);
+                require_once 'view/templates/cadProduto.php';
+              }
+              if($_GET["action"] == "listar"){
+                require_once 'view/templates/listProduto.php';
+              }
+              if($_GET["action"] == "excluir"){
+    
+                $produto = call_user_func(array("ProdutoController","excluir"), $_GET["id"]);
+                require_once 'view/templates/listProduto.php';
+              }
+            }elseif((isset($_GET["page"])) && $_GET["page"] == "produto"){
+              require_once 'view/templates/cadProduto.php';
+            }
+        }else{
+            if(isset($_GET['logar'])){
+                require_once 'view/templates/login.php';
+            }else{
+                require_once 'principal.php';
+            }
+        }
+    ?>
+
+    
 </body>
 </html>

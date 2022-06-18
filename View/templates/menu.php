@@ -35,8 +35,8 @@
                             Cadastrar
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="index.php">usuário</a>
-                            <a class="dropdown-item" href="index.php">Produto</a>
+                            <a class="dropdown-item" href="index.php?page=usuario">usuário</a>
+                            <a class="dropdown-item" href="index.php?page=produto">Produto</a>
                         </div>
                         </div>
                         <div class="dropdown" style="margin-top:10px">
@@ -45,7 +45,7 @@
                             </button>
                             <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="index.php?action=listar&page=usuario">usuário</a>
-                                <a class="dropdown-item" href="">Produto</a>
+                                <a class="dropdown-item" href="index.php?action=listar&page=produto">Produto</a>
                             </div>
                         </div>
                         <div class="dropdown" style="margin-top:10px">

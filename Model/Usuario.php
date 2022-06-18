@@ -174,7 +174,6 @@ class Usuario extends Banco{
         return $result;
     }
 
-    
     public function logar(){
         $conexao = new Conexao();
         $conn = $conexao->getConection();

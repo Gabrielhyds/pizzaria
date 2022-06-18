@@ -84,7 +84,7 @@ require_once './controller/UsuarioController.php';
                                 <label for="permissao" class="form-label" >Permissão</label>
 								<select name="permissao" id="permissao" class="form-control">
                             		<option value="0" disabled selected style="color:black">Selecione</option>
-									<option value="1"<?php echo isset($usuario) && $usuario->getPermissao()=='A'?'selected':''?>>Administrador</option>
+									<option value="1" <?php echo isset($usuario) && $usuario->getPermissao()=='A'?'selected':''?>>Administrador</option>
             						<option value="2"<?php echo isset($usuario) && $usuario->getPermissao()=='C'?'selected':''?>>Comum</option>                       
 								</select>
                                 </select>
@@ -112,7 +112,7 @@ require_once './controller/UsuarioController.php';
         //Verifica se o botão submit foi acionado 
         if(isset($_POST['btnSalvar'])){
 				call_user_func(array('UsuarioController','salvar'));
-				header('Location:index.php?action=listar');
+				header('Location:index.php?action=listar&page=usuario');
 				ob_end_flush();
 		}
     ?>
