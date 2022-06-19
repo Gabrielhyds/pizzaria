@@ -49,7 +49,13 @@ require_once './controller/ProdutoController.php';
                         <label for="inputAddress" style="color:black;">imagem</label>
                         <input type="file" class="form-control" name="imagem" id="imagem" required value="<?php echo isset($usuario)?$usuario->getCpf():'' ?>">
                         </div>
-                        </div>
+                        <?php
+                          if(isset($produto) && !empty($produto->getPath())){
+                        ?>
+                        <img src="<?php echo $produto->getPath();?>" alt="" class="img-thumbnail" style="widht:25%">
+                          <?php } ?>
+                      </div>
+
                             <button type="submit" class="btn btn-success" name="btnSalvar">CADASTRAR</button>
                             <button type="reset" class="btn btn-danger">LIMPAR</button>
                             </div>
@@ -68,7 +74,7 @@ require_once './controller/ProdutoController.php';
         //Verifica se o botão submit foi acionado 
         if(isset($_POST['btnSalvar'])){
 				call_user_func(array('ProdutoController','salvar'));
-				//header('Location:index.php?action=listar');
+				header('Location:index.php?action=listar&page=produto');
 				ob_end_flush();
 		}
     ?>
@@ -87,6 +93,6 @@ require_once './controller/ProdutoController.php';
   
   <script src="view/assets/js/scripts.js"></script>
   <script src="view/assets/js/custom.js"></script>
-  <script src="view/assets/js/demo.js"></script>
+
 </body>
 </html>

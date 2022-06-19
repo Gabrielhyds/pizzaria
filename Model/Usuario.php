@@ -79,6 +79,7 @@ class Usuario extends Banco{
         $this->salario = $salario;
     }
 
+    
     public function save(){
 
         $result = false;

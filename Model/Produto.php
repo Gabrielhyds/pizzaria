@@ -9,7 +9,9 @@ class Produto extends Banco{
     private $nome;
     private $descricao;
     private $imagem;
+    private $imagemTipo;
     private $preco;
+    private $path;
 
     public function getId(){
         return $this->id;
@@ -50,6 +52,22 @@ class Produto extends Banco{
         $this->preco = $preco;
     }
 
+    public function getPath(){
+        return $this->path;
+    }
+
+    public function setPath($path){
+        $this->path = $path;
+    }
+    
+    public function getImagemTipo(){
+        return $this->path;
+    }
+
+    public function setImagemTipo($imagemTipo){
+        $this->imagemTipo = $imagemTipo;
+    }
+
 
     public function save(){
 
@@ -60,20 +78,20 @@ class Produto extends Banco{
         if($conn = $conexao->getConection()){
             if($this->id > 0){
 
-                $query = "UPDATE produto SET nome = :nome, descricao = :descricao, imagem = :imagem,  preco = :preco WHERE id = :id";
+                $query = "UPDATE produto SET nome = :nome, descricao = :descricao, imagem = :imagem, imagemTipo = :imagemTipo,  preco = :preco , path = :path WHERE id = :id";
 
                 $stmt = $conn->prepare($query);
 
-                if ($stmt->execute(array(":nome" => $this->nome,":descricao" => $this->descricao,  ":imagem" => $this->imagem, ":preco" => $this->preco,":id"=> $this->id))) {
+                if ($stmt->execute(array(":nome" => $this->nome,":descricao" => $this->descricao,  ":imagem" => $this->imagem, ":imagemTipo" => $this->imagemTipo, ":preco" => $this->preco, ":path" => $this->path, ":id"=> $this->id))) {
                     $result = $stmt->rowCount();
                 }
             }else{
 
-                $query = "insert into produto (id, nome, descricao,imagem,preco) values (null,:nome,:descricao,:imagem,:preco)";
+                $query = "insert into produto (id, nome, descricao,imagem,imagemTipo,preco,path) values (null,:nome,:descricao,:imagem,:imagemTipo,:preco,:path)";
 
                 $stmt = $conn->prepare($query);
 
-                if ($stmt->execute(array(":nome" => $this->nome, ":descricao" => $this->descricao, ":imagem" => $this->imagem, ":preco" => $this->preco))) {
+                if ($stmt->execute(array(":nome" => $this->nome, ":descricao" => $this->descricao, ":imagem" => $this->imagem, ":imagemTipo" => $this->imagemTipo, ":preco" => $this->preco, ":path" => $this->path))) {
                     $result = $stmt->rowCount();
                 }
             }  
