@@ -42,11 +42,13 @@ CREATE TABLE telefone(
 -- Estrutura da tabela Produtos. 
 -- *
 CREATE TABLE produto (
-   id int NOT NULL PRIMARY KEY,
+   id int NOT NULL PRIMARY KEY AUTO_INCREMENT ,
    nome varchar(100) NOT NULL,
    descricao varchar(255) DEFAULT NULL,
-   imagem varchar(255) NOT NULL,
-   preco double(10,2) NOT NULL
+   imagem LONGBLOB ,
+   imagemTipo VARCHAR(50) DEFAULT NULL,
+   preco double(10,2) NOT NULL,
+   path VARCHAR(50)
 );
 
 
