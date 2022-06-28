@@ -98,9 +98,9 @@
                     <div class="col-md-6 col-lg-4 mb-5">
                         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
                         <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="view/assetsPrincipal/img/portfolio/cabin.png" alt="Card image cap" style="width:250px;margin-left:15px">
+                            <img class="card-img-top" src="view/assetsPrincipal/img/portfolio/Calabresa.png" alt="Card image cap" style="width:250px;margin-left:15px">
                             <div class="card-body">
-                                <h5 class="card-title">Pizza de Pepperoni</h5>
+                                <h5 class="card-title">Pizza de calabresa </h5>
                                 <p class="card-text">pepperoni , queijo , tomate , azeitona</p>
                                 <a href="#" class="btn btn-primary">Veja mais</a>
                             </div>
@@ -112,9 +112,9 @@
                     <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
                         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
                         <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="view/assetsPrincipal/img/portfolio/cabin.png" alt="Card image cap" style="width:250px;margin-left:15px">
+                            <img class="card-img-top" src="view/assetsPrincipal/img/portfolio/frango.png" alt="Card image cap" style="width:250px;margin-left:15px">
                             <div class="card-body">
-                                <h5 class="card-title">Pizza de Pepperoni</h5>
+                                <h5 class="card-title">Pizza frango</h5>
                                 <p class="card-text">pepperoni , queijo , tomate , azeitona</p>
                                 <a href="#" class="btn btn-primary">Veja mais</a>
                             </div>
@@ -126,9 +126,9 @@
                     <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
                         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
                         <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="view/assetsPrincipal/img/portfolio/cabin.png" alt="Card image cap" style="width:250px;margin-left:15px">
+                            <img class="card-img-top" src="view/assetsPrincipal/img/portfolio/nutella.png" alt="Card image cap" style="width:250px;margin-top:15px;margin-left:15px;padding:20px">
                             <div class="card-body">
-                                <h5 class="card-title">Pizza de Pepperoni</h5>
+                                <h5 class="card-title">Pizza de nutella</h5>
                                 <p class="card-text">pepperoni , queijo , tomate , azeitona</p>
                                 <a href="#" class="btn btn-primary">Veja mais</a>
                             </div>
@@ -140,9 +140,9 @@
                     <div class="col-md-6 col-lg-4">
                         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
                         <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="view/assetsPrincipal/img/portfolio/cabin.png" alt="Card image cap" style="width:250px;margin-left:15px">
+                            <img class="card-img-top" src="view/assetsPrincipal/img/portfolio/nutella.png" alt="Card image cap" style="width:250px;margin-top:15px;margin-left:15px;padding:20px">
                             <div class="card-body">
-                                <h5 class="card-title">Pizza de Pepperoni</h5>
+                                <h5 class="card-title">Pizza de chocolate</h5>
                                 <p class="card-text">pepperoni , queijo , tomate , azeitona</p>
                                 <a href="#" class="btn btn-primary">Veja mais</a>
                             </div>
@@ -166,8 +166,8 @@
                 </div>
                 <!-- About Section Content-->
                 <div class="row">
-                    <div class="col-lg-4 ms-auto"><p class="lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional SASS stylesheets for easy customization.</p></div>
-                    <div class="col-lg-4 me-auto"><p class="lead">You can create your own custom avatar for the masthead, change the icon in the dividers, and add your email address to the contact form to make it fully functional!</p></div>
+                    <div class="col-lg-4 ms-auto"><p class="lead">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p></div>
+                    <div class="col-lg-4 me-auto"><p class="lead">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p></div>
                 </div>
             </div>
         </section>
@@ -196,26 +196,26 @@
                             <!-- Name input-->
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
-                                <label for="name">Full name</label>
-                                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                                <label for="name">Nome completo</label>
+                                <div class="invalid-feedback" data-sb-feedback="name:required">o nome é necessario</div>
                             </div>
                             <!-- Email address input-->
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
-                                <label for="email">Email address</label>
+                                <label for="email">E-mail</label>
                                 <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
                                 <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
                             </div>
                             <!-- Phone number input-->
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
-                                <label for="phone">Phone number</label>
+                                <label for="phone">Telefone</label>
                                 <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
                             </div>
                             <!-- Message input-->
                             <div class="form-floating mb-3">
                                 <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
-                                <label for="message">Message</label>
+                                <label for="message">Mensagem</label>
                                 <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
                             </div>
                             <!-- Submit success message-->

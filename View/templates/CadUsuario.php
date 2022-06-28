@@ -8,7 +8,7 @@ require_once './controller/UsuarioController.php';
  <div class="main-sidebar">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="index.html">Stisla Lite</a>
+            <a href="index.html">Grant-Food</a>
           </div>
           <div class="sidebar-user">
             <div class="sidebar-user-picture">
@@ -22,22 +22,19 @@ require_once './controller/UsuarioController.php';
             </div>
           </div>
           <ul class="sidebar-menu">
-            <li >
-              <a href="./index.php"><i class="ion ion-speedometer"></i><span>status do sistema</span></a>
-            </li>
 
-            <li class="active">
-              <a href="#" class="has-dropdown"><i class="ion ion-ios-albums-outline"></i><span>Usuário</span></a>
+          <li class="active">
+              <a href="#" class="has-dropdown"><i class="ion ion-ios-contact"></i><span>Usuário</span></a>
               <ul class="menu-dropdown">
-                <li><a href="index.php?page=usuario"><i class="ion ion-ios-circle-outline active"></i>Cadastrar Usuário</a></li>
-                <li><a href="index.php?action=listar&page=usuario"><i class="ion ion-ios-circle-outline"></i>Listar Usuário</a></li>
+                <li><a href="index.php?page=usuario"><i class="ion ion-ios-eye active"></i>Cadastrar Usuário</a></li>
+                <li><a href="index.php?action=listar&page=usuario"><i class="ion ion-ios-eye"></i>Listar Usuário</a></li>
               </ul>
             </li>
             <li>
-              <a href="#" class="has-dropdown"><i class="ion ion-flag"></i><span>Produto</span></a>
+              <a href="#" class="has-dropdown"><i class="ion ion-ios-cart"></i><span>Produto</span></a>
               <ul class="menu-dropdown">
-                <li><a href="index.php?page=produto"><i class="ion ion-ios-circle-outline"></i>Cadastrar Produto</a></li>
-                <li><a href="index.php?action=listar&page=produto"><i class="ion ion-ios-circle-outline"></i>Listar Produto</a></li>
+                <li><a href="index.php?page=produto"><i class="ion ion-ios-eye"></i>Cadastrar Produto</a></li>
+                <li><a href=""><i class="ion ion-ios-eye"></i>Listar Produto</a></li>
               </ul>
             </li>
         </aside>

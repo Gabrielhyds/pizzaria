@@ -27,28 +27,28 @@ ob_start();
             </div>
 
             <div class="card card-primary">
-              <div class="card-header" style="color:black";><h4>Login</h4></div>
+              <div class="card-header" style="color:black"><h4>Login</h4></div>
 
               <div class="card-body">
                 <form method="POST" action="#" class="needs-validation" novalidate="">
                   <div class="form-group">
-                    <label for="usuario" style="color:black";>Usuário</label>
+                    <label for="usuario" style="color:black">Usuário</label>
                     <input id="usuario" type="text" class="form-control" name="usuario" tabindex="1" required autofocus>
-                    <div class="invalid-feedback" style="color:black";>
+                    <div class="invalid-feedback" style="color:black">
                       Necessario seu usuário
                     </div>
                   </div>
 
                   <div class="form-group">
-                    <label for="password" class="d-block" style="color:black";>Senha
+                    <label for="password" class="d-block" style="color:black">Senha
                       <div class="float-right">
-                        <a href="forgot.php" style="color:black";>
+                        <a href="forgot.php" style="color:black">
                           Esqueceu a senha?
                         </a>
                       </div>
                     </label>
                     <input id="senha" type="password" class="form-control" name="senha" tabindex="2" required>
-                    <div class="invalid-feedback" style="color:black";>
+                    <div class="invalid-feedback" style="color:black">
                       Necessario sua senha
                     </div>
                   </div>

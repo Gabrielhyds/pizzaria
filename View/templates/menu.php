@@ -39,11 +39,8 @@ ob_start();
             <i class="ion ion-android-person d-lg-none"></i>
             <div class="d-sm-none d-lg-inline-block">Olá, <?php echo $_SESSION['login'];?></div></a>
             <div class="dropdown-menu dropdown-menu-right">
-              <a href="profile.html" class="dropdown-item has-icon">
-                <i class="ion ion-android-person"></i> Profile
-              </a>
               <a href="./Sair.php" class="dropdown-item has-icon">
-                <i class="ion ion-log-out"></i> Logout
+                <i class="ion ion-log-out"></i> Sair
               </a>
             </div>
           </li>
@@ -52,7 +49,7 @@ ob_start();
       <div class="main-sidebar">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="index.html">Stisla Lite</a>
+            <a href="index.php">Grant-Food</a>
           </div>
           <div class="sidebar-user">
             <div class="sidebar-user-picture">
