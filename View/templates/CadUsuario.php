@@ -1,31 +1,53 @@
 
 <?php
-
+//session_start();
 ob_start();
 require_once './controller/UsuarioController.php';
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport">
-  <title>Cadastro</title>
+ 
+ <div class="main-sidebar">
+        <aside id="sidebar-wrapper">
+          <div class="sidebar-brand">
+            <a href="index.html">Stisla Lite</a>
+          </div>
+          <div class="sidebar-user">
+            <div class="sidebar-user-picture">
+              <img alt="image" src="view/templates/assets/img/avatar/avatar-1.jpeg">
+            </div>
+            <div class="sidebar-user-details">
+              <div class="user-name"><?php echo $_SESSION['login'];?></div>
+              <div class="user-role">
+                Administrador
+              </div>
+            </div>
+          </div>
+          <ul class="sidebar-menu">
+            <li >
+              <a href="./index.php"><i class="ion ion-speedometer"></i><span>status do sistema</span></a>
+            </li>
 
-  <link rel="stylesheet" href="view/assets/modules/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="view/assets/modules/ionicons/css/ionicons.min.css">
-  <link rel="stylesheet" href="view/assets/modules/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css">
-
-  <link rel="stylesheet" href="view/assets/css/demo.css">
-  <link rel="stylesheet" href="view/assets/css/style.css">
-</head>
-
-<body>
-<br><br><br><br>
-
-<div class="main-content"  style="margin-left:80px;margin-right:20px; overflow-x:hidden">
-                <section class="section">
-                    <h1 class="section-header">
-						<h2>Cadastrar Usuário</h2><hr style="margin-right:1240px">
+            <li class="active">
+              <a href="#" class="has-dropdown"><i class="ion ion-ios-albums-outline"></i><span>Usuário</span></a>
+              <ul class="menu-dropdown">
+                <li><a href="index.php?page=usuario"><i class="ion ion-ios-circle-outline active"></i>Cadastrar Usuário</a></li>
+                <li><a href="index.php?action=listar&page=usuario"><i class="ion ion-ios-circle-outline"></i>Listar Usuário</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" class="has-dropdown"><i class="ion ion-flag"></i><span>Produto</span></a>
+              <ul class="menu-dropdown">
+                <li><a href="index.php?page=produto"><i class="ion ion-ios-circle-outline"></i>Cadastrar Produto</a></li>
+                <li><a href="index.php?action=listar&page=produto"><i class="ion ion-ios-circle-outline"></i>Listar Produto</a></li>
+              </ul>
+            </li>
+        </aside>
+      </div>
+      
+    </div>   
+        <div class="main-content">
+        <section class="section">
+            <h1 class="section-header">
+			    Cadastrar Usuário
                     </h1>
                     <form method="POST" action="" enctype="multipart/form-data">
                         <div>
@@ -105,32 +127,21 @@ require_once './controller/UsuarioController.php';
                         </fieldset>
                         </form>
 
-                </section>
             </div>
 
 	<?php
         //Verifica se o botão submit foi acionado 
         if(isset($_POST['btnSalvar'])){
 				call_user_func(array('UsuarioController','salvar'));
-				header('Location:index.php?action=listar&page=usuario');
+				header('Location:./index.php?action=listar&page=usuario');
 				ob_end_flush();
 		}
     ?>
+                    </div>
+                </div>
+            </div>
+            <!-- Blank End -->
 
 
-
-
-  <script src="view/assets/modules/jquery.min.js"></script>
-  <script src="view/assets/modules/popper.js"></script>
-  <script src="view/assets/modules/tooltip.js"></script>
-  <script src="view/assets/modules/bootstrap/js/bootstrap.min.js"></script>
-  <script src="view/assets/modules/nicescroll/jquery.nicescroll.min.js"></script>
-  <script src="view/assets/modules/moment.min.js"></script>
-  <script src="view/assets/modules/scroll-up-bar/dist/scroll-up-bar.min.js"></script>
-  <script src="view/assets/js/sa-functions.js"></script>
-  
-  <script src="view/assets/js/scripts.js"></script>
-  <script src="view/assets/js/custom.js"></script>
-  <script src="view/assets/js/demo.js"></script>
-</body>
-</html>
+        </section>
+    </div>

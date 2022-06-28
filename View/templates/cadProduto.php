@@ -4,50 +4,74 @@
 ob_start();
 require_once './controller/ProdutoController.php';
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport">
-  <title>Cadastro de produtos</title>
 
-  <link rel="stylesheet" href="view/assets/modules/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="view/assets/modules/ionicons/css/ionicons.min.css">
-  <link rel="stylesheet" href="view/assets/modules/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css">
 
-  <link rel="stylesheet" href="view/assets/css/demo.css">
-  <link rel="stylesheet" href="view/assets/css/style.css">
-</head>
 
-<body>
-<br><br><br><br>
+<div class="main-sidebar">
+        <aside id="sidebar-wrapper">
+          <div class="sidebar-brand">
+            <a href="index.html">Stisla Lite</a>
+          </div>
+          <div class="sidebar-user">
+            <div class="sidebar-user-picture">
+              <img alt="image" src="view/templates/assets/img/avatar/avatar-1.jpeg">
+            </div>
+            <div class="sidebar-user-details">
+              <div class="user-name"><?php echo $_SESSION['login'];?></div>
+              <div class="user-role">
+                Administrador
+              </div>
+            </div>
+          </div>
+          <ul class="sidebar-menu">
+            <li >
+              <a href="./index.php"><i class="ion ion-speedometer"></i><span>status do sistema</span></a>
+            </li>
 
-<div class="main-content"  style="margin-left:80px;margin-right:20px; overflow-x:hidden">
-                <section class="section">
-                    <h1 class="section-header">
-						<h2>Cadastrar Produtos</h2><hr style="margin-right:1240px">
-                    </h1>
-                    <form method="POST" action="" enctype="multipart/form-data">
+            <li>
+              <a href="#" class="has-dropdown"><i class="ion ion-ios-albums-outline"></i><span>Usuário</span></a>
+              <ul class="menu-dropdown">
+                <li><a href="index.php?page=usuario"><i class="ion ion-ios-circle-outline active"></i>Cadastrar Usuário</a></li>
+                <li><a href="index.php?action=listar&page=usuario"><i class="ion ion-ios-circle-outline"></i>Listar Usuário</a></li>
+              </ul>
+            </li>
+            <li  class="active">
+              <a href="#" class="has-dropdown"><i class="ion ion-flag"></i><span>Produto</span></a>
+              <ul class="menu-dropdown">
+                <li><a href="index.php?page=produto"><i class="ion ion-ios-circle-outline"></i>Cadastrar Produto</a></li>
+                <li><a href="index.php?action=listar&page=produto"><i class="ion ion-ios-circle-outline"></i>Listar Produto</a></li>
+              </ul>
+            </li>
+        </aside>
+      </div>
+      
+    </div>   
+        <div class="main-content">
+        <section class="section">
+            <h1 class="section-header">
+			        Cadastrar Usuário
+            </h1>
+            <form method="POST" action="" enctype="multipart/form-data">
                         <div>
                         </div><br>
                         <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputEmail4" style="color:black;">Produto</label>
-                            <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome do produto" required value="<?php echo isset($usuario)?$usuario->getNome():'' ?>">
+                            <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome do produto" required value="<?php echo isset($produto)?$produto->getNome():'' ?>">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4" style="color:black;">Descricao</label>
-                            <input type="text" class="form-control" name="descricao" id="descricao" placeholder="Descrição do produto" required value="<?php echo isset($usuario)?$usuario->getUsuario():'' ?>">
+                            <input type="text" class="form-control" name="descricao" id="descricao" placeholder="Descrição do produto" required value="<?php echo isset($produto)?$produto->getDescricao():'' ?>">
                         </div>
                         </div>
                         <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputAddress2" style="color:black;">preço</label>
-                            <input type="number" class="form-control" name="preco" id="preco" placeholder="Digite o preço" required value="<?php echo isset($usuario)?$usuario->getSenha():'' ?>" >
+                            <input type="number" class="form-control" name="preco" id="preco" placeholder="Digite o preço" required value="<?php echo isset($produto)?$produto->getPreco():'' ?>" >
                         </div>
                         <div class="form-group col-md-6">
                         <label for="inputAddress" style="color:black;">imagem</label>
-                        <input type="file" class="form-control" name="imagem" id="imagem" required value="<?php echo isset($usuario)?$usuario->getCpf():'' ?>">
+                        <input type="file" class="form-control" name="imagem" id="imagem" required value="<?php echo isset($produto)?$produto->getPath():'' ?>">
                         </div>
                         <?php
                           if(isset($produto) && !empty($produto->getPath())){
@@ -74,25 +98,17 @@ require_once './controller/ProdutoController.php';
         //Verifica se o botão submit foi acionado 
         if(isset($_POST['btnSalvar'])){
 				call_user_func(array('ProdutoController','salvar'));
-				header('Location:index.php?action=listar&page=produto');
+				header('Location:./index.php?action=listar&page=produto');
 				ob_end_flush();
 		}
     ?>
 
 
+                    </div>
+                </div>
+            </div>
+            <!-- Blank End -->
 
 
-  <script src="view/assets/modules/jquery.min.js"></script>
-  <script src="view/assets/modules/popper.js"></script>
-  <script src="view/assets/modules/tooltip.js"></script>
-  <script src="view/assets/modules/bootstrap/js/bootstrap.min.js"></script>
-  <script src="view/assets/modules/nicescroll/jquery.nicescroll.min.js"></script>
-  <script src="view/assets/modules/moment.min.js"></script>
-  <script src="view/assets/modules/scroll-up-bar/dist/scroll-up-bar.min.js"></script>
-  <script src="view/assets/js/sa-functions.js"></script>
-  
-  <script src="view/assets/js/scripts.js"></script>
-  <script src="view/assets/js/custom.js"></script>
-
-</body>
-</html>
+        </section>
+    </div>

@@ -9,15 +9,49 @@ ob_start();
       exit;
   }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Usuário</title>
-	<meta charset="UTF-8">
-</head>
-<body style="background-color:aliceblue"><br><br>
-	<h1 style="margin-top:60px;margin-left:25px">Produtos Cadastrado no sistema</h1>
-    <div style="padding:30px">
+<div class="main-sidebar">
+        <aside id="sidebar-wrapper">
+          <div class="sidebar-brand">
+            <a href="index.html">Stisla Lite</a>
+          </div>
+          <div class="sidebar-user">
+            <div class="sidebar-user-picture">
+              <img alt="image" src="view/templates/assets/img/avatar/avatar-1.jpeg">
+            </div>
+            <div class="sidebar-user-details">
+              <div class="user-name"><?php echo $_SESSION['login'];?></div>
+              <div class="user-role">
+                Administrador
+              </div>
+            </div>
+          </div>
+          <ul class="sidebar-menu">
+            <li >
+              <a href="./index.php"><i class="ion ion-speedometer"></i><span>status do sistema</span></a>
+            </li>
+
+            <li >
+              <a href="#" class="has-dropdown"><i class="ion ion-ios-albums-outline"></i><span>Usuário</span></a>
+              <ul class="menu-dropdown">
+                <li><a href="index.php?page=usuario"><i class="ion ion-ios-circle-outline active"></i>Cadastrar Usuário</a></li>
+                <li><a href="index.php?action=listar&page=usuario"><i class="ion ion-ios-circle-outline"></i>Listar Usuário</a></li>
+              </ul>
+            </li>
+            <li class="active">
+              <a href="#" class="has-dropdown"><i class="ion ion-flag"></i><span>Produto</span></a>
+              <ul class="menu-dropdown">
+                <li><a href="index.php?page=produto"><i class="ion ion-ios-circle-outline"></i>Cadastrar Produto</a></li>
+                <li><a href=""><i class="ion ion-ios-circle-outline"></i>Listar Produto</a></li>
+              </ul>
+            </li>
+        </aside>
+      </div>
+      
+    </div>   
+        <div class="main-content">
+        <section class="section">
+        <h1  class="section-header">Produtos Cadastrado no sistema</h1>
+    <div >
     <table class="table alert alert-primary">
         <thead>
             <tr>
@@ -36,20 +70,20 @@ ob_start();
                     $produtos = call_user_func(array('ProdutoController','listar'));
                     //verifica se houve algum retorno
                     if(isset($produtos) && !empty($produtos)){
-                        foreach($produtos as $produtos){
+                        foreach($produtos as $produto){
                             ?>
                             <tr>
-                            <th scope="row"><?php echo $produtos->getNome(); ?></th>
-                            <td><?php echo $produtos->getDescricao();?></td>
+                            <th scope="row"><?php echo $produto->getNome(); ?></th>
+                            <td><?php echo $produto->getDescricao();?></td>
                             <?php
-                                if(isset($produtos) && !empty($produtos->getPath())){
+                                if(isset($produto) && !empty($produto->getPath())){
                             ?>
-                            <td><img src="<?php echo $produtos->getPath();?>" alt="" style="widht:25%;height:50px"></td>
+                            <td><img src="<?php echo $produto->getPath();?>"  style="widht:25%;height:50px"></td>
                             <?php } ?>
-                            <td><?php echo $produtos->getPreco();?></td>
+                            <td><?php echo $produto->getPreco();?></td>
                             <td>
-                                <a href="index.php?action=editar&id=<?php echo $produtos->getId(); ?>&page=produto" style="text-decoration:none;color:blue;">Editar</a>
-                                <a href="index.php?action=excluir&id=<?php echo $produtos->getId();?>&page=produto" style="text-decoration:none;color:red;">Excluir</a>
+                                <a href="index.php?action=editar&id=<?php echo $produto->getId(); ?>&page=produto" style="text-decoration:none;color:blue;">Editar</a>
+                                <a href="index.php?action=excluir&id=<?php echo $produto->getId();?>&page=produto" style="text-decoration:none;color:red;">Excluir</a>
                                 </td>
                             </tr>
                             <?php
@@ -65,8 +99,6 @@ ob_start();
             </tbody>
         </table>
     </div>
-	
 
-	
-</body>
-</html>
+        </section>
+    </div>
